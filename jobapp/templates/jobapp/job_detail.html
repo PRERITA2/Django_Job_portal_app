@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}FlixCareers | {{job.title}}{% endblock title %}
+{% block content %}
+<section>
+  <div class="container">
+    <div class="view-post">
+      <h1 class="jobtitle">
+        {{ job.title }}
+      </h1>
+      <p class="location it">Location: <span>{{job.job_location_city_names}}</span></p>
+      <p class="status it">Type: <span>{{job.get_job_option_display}}</span></p>
+      <p class="budget it">Salary: <span>{{job.salary}}</span></p>
+      <div class="desc">
+        <p class="details">
+          {{job.description}}
+        </p>
+      </div>
+      <p class="skills it">Skills
+      <ul>
+        {% for skill in job.job_skills %}
+          <li>{{skill}}</li>
+        {% endfor %}
+      </p>
+    </ul>
+    </div>
+  </div>
+</section>
+{% endblock content %}

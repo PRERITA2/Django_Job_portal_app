@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}FlixCareers|Subscribe{% endblock title %}
+{% block content%}
+<section>
+    <div class="container">
+        <form class="email-form" method="post">
+          {% csrf_token %}
+          {% comment %} {{ form.as_p }} {% endcomment %}
+          {% for field in form %}
+              {{field.errors}}
+              <p><label for="{{field.id_for_label}}">{{field.label}}</label>
+                  {{field}}
+              </p>
+          {% endfor %}
+          <input type="submit" value="Submit" class="email-submit">
+        </form>
+    </div>
+  </section>
+{% endblock content %}
